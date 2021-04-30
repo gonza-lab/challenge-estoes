@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import { Header } from './components/header/Header';
+import { ScreensListRoot } from './screens/list/Root';
+import { ScreensAddEditRoot } from './screens/add-edit/Root'
+import './styles/styles.scss';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {}, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={ScreensListRoot} />
+	<Route exact path="/add" component={ScreensAddEditRoot} />
+	<Route exact path="/edit/:id" component={ScreensAddEditRoot} />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
   );
 }
 

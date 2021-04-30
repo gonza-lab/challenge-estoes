@@ -1,0 +1,12 @@
+.add-edit-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  > .ui-form {
+    max-width: 664px;
+    width: 100%;
+  }
+}

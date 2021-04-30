@@ -1,0 +1,9 @@
+.add-edit-root {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 57px);
+
+  > .add-edit-form {
+    margin-top: 24px;
+  }
+}
